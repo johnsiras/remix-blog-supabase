@@ -11,9 +11,9 @@ import { Post } from "~/supabase.server";
 
 export const validator = withZod(
   z.object({
-    slug: z.string().nonempty("Slug is required"),
-    title: z.string().nonempty("Title is required"),
-    content: z.string().nonempty("Content is required"),
+    slug: z.string().min(1, "Slug is required"),
+    title: z.string().min(1, "Title is required"),
+    content: z.string().min(1, "Content is required"),
   })
 );
 

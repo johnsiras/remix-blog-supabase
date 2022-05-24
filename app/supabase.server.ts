@@ -7,24 +7,24 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export type PostType = {
   id?: any;
-  slug: string;
+  slug?: string;
   title: string;
   content: string;
 };
 
 export class Post {
-  async create(data: PostType): Promise<{ data: PostType[]; error: any }> {
+  async create(data: PostType) {
     const { data: returnedData, error } = await supabase
       .from<PostType>("posts")
       .insert(data);
 
     return {
-      data: returnedData as PostType[],
+      returnedData,
       error,
     };
   }
 
-  async getAllPost(specify?: string) {
+  async getAllPost() {
     const { data, error } = await supabase.from<PostType>("posts").select();
 
     return { data, error };

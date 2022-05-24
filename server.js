@@ -7,7 +7,7 @@ const { createRequestHandler } = require("@remix-run/express");
 const BUILD_DIR = path.join(process.cwd(), "build");
 
 // Dotenv
-require("dotenv").config();
+if (process.env.NODE_ENV === "development") require("dotenv").config();
 
 const app = express();
 

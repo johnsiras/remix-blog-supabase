@@ -100,7 +100,7 @@ var nprogress_default = "/build/_assets/nprogress-JFUSETFZ.css";
 var import_react3 = require("react");
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-CGZUWPXR.css";
+var app_default = "/build/_assets/app-IAS72ENJ.css";
 
 // route:D:\Remix-Projects\remix-blog-supabase\app\root.tsx
 var links = () => [
@@ -285,11 +285,11 @@ var Post = class {
   async create(data) {
     const { data: returnedData, error } = await supabase.from("posts").insert(data);
     return {
-      data: returnedData,
+      returnedData,
       error
     };
   }
-  async getAllPost(specify) {
+  async getAllPost() {
     const { data, error } = await supabase.from("posts").select();
     return { data, error };
   }
@@ -442,9 +442,9 @@ var import_remix_validated_form5 = require("remix-validated-form");
 var import_tabler_icons_react2 = require("tabler-icons-react");
 var import_zod2 = require("zod");
 var validator2 = (0, import_with_zod2.withZod)(import_zod2.z.object({
-  slug: import_zod2.z.string().nonempty("Slug is required"),
-  title: import_zod2.z.string().nonempty("Title is required"),
-  content: import_zod2.z.string().nonempty("Content is required")
+  slug: import_zod2.z.string().min(1, "Slug is required"),
+  title: import_zod2.z.string().min(1, "Title is required"),
+  content: import_zod2.z.string().min(1, "Content is required")
 }));
 var action3 = async ({ request }) => {
   const result = await validator2.validate(await request.formData());
@@ -1062,14 +1062,14 @@ var Tokenizer = class {
         l = item.header.length;
         for (j = 0; j < l; j++) {
           item.header[j].tokens = [];
-          this.lexer.inlineTokens(item.header[j].text, item.header[j].tokens);
+          this.lexer.inline(item.header[j].text, item.header[j].tokens);
         }
         l = item.rows.length;
         for (j = 0; j < l; j++) {
           row = item.rows[j];
           for (k = 0; k < row.length; k++) {
             row[k].tokens = [];
-            this.lexer.inlineTokens(row[k].text, row[k].tokens);
+            this.lexer.inline(row[k].text, row[k].tokens);
           }
         }
         return item;
@@ -2655,7 +2655,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "253eac27", "entry": { "module": "/build/entry.client-CYMA7PM2.js", "imports": ["/build/_shared/chunk-ICZ5CKGR.js", "/build/_shared/chunk-3WLMPDNB.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-QKZBRH7K.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": true, "hasErrorBoundary": false }, "routes/admin/edit/$slug": { "id": "routes/admin/edit/$slug", "parentId": "root", "path": "admin/edit/:slug", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/admin/edit/$slug-IRQYUVXG.js", "imports": ["/build/_shared/chunk-DFR763EX.js", "/build/_shared/chunk-WAIYNKQE.js", "/build/_shared/chunk-RGSL42JS.js"], "hasAction": true, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/admin/edit/index": { "id": "routes/admin/edit/index", "parentId": "root", "path": "admin/edit", "index": true, "caseSensitive": void 0, "module": "/build/routes/admin/edit/index-HGJSGTOX.js", "imports": ["/build/_shared/chunk-RGSL42JS.js"], "hasAction": true, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/admin/index": { "id": "routes/admin/index", "parentId": "root", "path": "admin", "index": true, "caseSensitive": void 0, "module": "/build/routes/admin/index-2JPI2OET.js", "imports": ["/build/_shared/chunk-DFR763EX.js", "/build/_shared/chunk-WAIYNKQE.js", "/build/_shared/chunk-RGSL42JS.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-5XDUB2DA.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/posts/$slug": { "id": "routes/posts/$slug", "parentId": "root", "path": "posts/:slug", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/posts/$slug-G5MCNOWU.js", "imports": ["/build/_shared/chunk-WDYS37PN.js", "/build/_shared/chunk-RGSL42JS.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/posts/index": { "id": "routes/posts/index", "parentId": "root", "path": "posts", "index": true, "caseSensitive": void 0, "module": "/build/routes/posts/index-RWY37TWK.js", "imports": ["/build/_shared/chunk-WAIYNKQE.js", "/build/_shared/chunk-WDYS37PN.js", "/build/_shared/chunk-RGSL42JS.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": true, "hasErrorBoundary": false } }, "url": "/build/manifest-253EAC27.js" };
+var assets_manifest_default = { "version": "e47390b2", "entry": { "module": "/build/entry.client-MV7BDUN3.js", "imports": ["/build/_shared/chunk-CUZOXUK2.js", "/build/_shared/chunk-FPLZEB2G.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-YGOOSXB7.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": true, "hasErrorBoundary": false }, "routes/admin/edit/$slug": { "id": "routes/admin/edit/$slug", "parentId": "root", "path": "admin/edit/:slug", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/admin/edit/$slug-NXO4PBZY.js", "imports": ["/build/_shared/chunk-IEIXEFTN.js", "/build/_shared/chunk-CFUV5GQ5.js", "/build/_shared/chunk-WQE4LDR7.js"], "hasAction": true, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/admin/edit/index": { "id": "routes/admin/edit/index", "parentId": "root", "path": "admin/edit", "index": true, "caseSensitive": void 0, "module": "/build/routes/admin/edit/index-G4DSB7YK.js", "imports": ["/build/_shared/chunk-WQE4LDR7.js"], "hasAction": true, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/admin/index": { "id": "routes/admin/index", "parentId": "root", "path": "admin", "index": true, "caseSensitive": void 0, "module": "/build/routes/admin/index-WZNB7YTC.js", "imports": ["/build/_shared/chunk-IEIXEFTN.js", "/build/_shared/chunk-CFUV5GQ5.js", "/build/_shared/chunk-WQE4LDR7.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-4P2U772Z.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/posts/$slug": { "id": "routes/posts/$slug", "parentId": "root", "path": "posts/:slug", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/posts/$slug-BPIGQPVX.js", "imports": ["/build/_shared/chunk-ONPEST6M.js", "/build/_shared/chunk-WQE4LDR7.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/posts/index": { "id": "routes/posts/index", "parentId": "root", "path": "posts", "index": true, "caseSensitive": void 0, "module": "/build/routes/posts/index-4RMS3JFB.js", "imports": ["/build/_shared/chunk-CFUV5GQ5.js", "/build/_shared/chunk-ONPEST6M.js", "/build/_shared/chunk-WQE4LDR7.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": true, "hasErrorBoundary": false } }, "url": "/build/manifest-E47390B2.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
