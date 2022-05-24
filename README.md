@@ -33,8 +33,6 @@ content - varchar
 
 Great! you did it, now you need todo is copy your project's url and anon key in `settings > API`
 
-![Picture](https://imgur.com/a/0pHajHa)
-
 now paste it onto the .env file (the .env i'm saying is the one .env.example you need to remove the .example)
 
 we're good now yea?
