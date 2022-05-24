@@ -4,7 +4,6 @@ node_modules
 /server/build
 /public/build
 .env
-
 yarn.lock
 package-lock.json
 pnpm-lock.yml
